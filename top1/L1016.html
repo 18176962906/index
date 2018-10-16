@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+    font-size: 100px;
+    font-family: "微软雅黑";
+    position: relative;
+}
+
+body {
+    padding: 200px;
+    color:darkviolet;
+}
+span:before {
+    color: #fff;
+    z-index: 3;
+    transform: rotateY(15deg);
+}
+span:before, span:after {
+    content: attr(data-q);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: left center;
+    transition: all 0.3s linear 0s;
+}
+span:after {
+    color: rgba(0,0,0,0.3);
+    z-index: 2;
+    transform: rotateY(0deg) scale(1.1, 1);
+}
+span:before, span:after {
+    content: attr(data-q);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: left center;
+    transition: all 0.3s linear 0s;
+}
+
+
+    span:hover:before{
+        transform:rotateY(40deg) skew(0deg,3deg);
+    }
+    span:hover:after{
+		transform:rotateY(40deg) skew(0deg,20deg);
+	}
+
+
+    
+    </style>
+</head>
+<body><a href="../index.html">返回</a>
+    <br>
+    <span data-q="纵">纵</span>
+    <span data-q="然">然</span>
+    <span data-q="万">万</span>
+    <span data-q="劫">劫</span>
+    <span data-q="不">不</span>
+    <span data-q="复">复</span>
+    <span data-q="，">，</span>
+    <span data-q="纵">纵</span>
+    <span data-q="然">然</span>
+    <span data-q="相">相</span>
+    <span data-q="思">思</span>
+    <span data-q="入">入</span>
+    <span data-q="骨">骨</span>
+
+</body>
+</html>
