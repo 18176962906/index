@@ -12,7 +12,7 @@ timer = window.setInterval(changeNum,1000);
 //获取h2元素
 var h2Obj=document.querySelector('h2');
 var imgObj=document.querySelector('h2>img');
-console.log(h2Obj);
+console.log(imgObj);
 
 //设置当前变化的号码变量及初值
 var currentNo = 1;
@@ -21,7 +21,7 @@ var currentNo = 1;
 function changeNum(){
 if(currentNo<8) currentNo++;
 else currentNo=1;
-h2Obj.innerHTML = '<img src="imges/0'+currentNo+'.jpg"alt=""></img>';
+h2Obj.innerHTML = '<img src="images/0'+currentNo+'.jpg"alt=""></img>';
 // console.log(currentNo);
 }
 // console.log(timer);
@@ -39,7 +39,7 @@ function stopChange(){
 
 //定义停止定时器函数，函数功能为停止定时器的同时改变按钮的显示文本
 function stopChange(){
-    window.clearInterval(timer);
+   timer = window.setInterval(changeNum,100);
     btnObj.textContent="启动"
 }
 
