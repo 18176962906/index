@@ -31,7 +31,7 @@ var btnObj=document.getElementById('btnObj')
 // console.log(btnObj);
 
 //定义启动定时器函数，函数功能为启动定时器的同时改变按钮的显示文本
-function stopChange(){
+function startChange(){
     startTimer(500);
     btnObj.textContent="停止";
 
@@ -45,4 +45,4 @@ function stopChange(){
 
 //为按钮添加鼠标移入移出事件
 btnObj.addEventListener('mouseover',stopChange);
-btnObj.addEventListener('mouseout',stopChange);
+btnObj.addEventListener('mouseout',startChange);
