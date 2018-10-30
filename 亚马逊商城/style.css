@@ -104,7 +104,7 @@ ul{
 }
 
 #images{
-    position: relative;
+    /* position: relative; */
 }
 #images>a{
     transition: opacity 1s linear;
@@ -122,4 +122,67 @@ ul{
 .hiddenImg{
     /* display: none; */
     opacity: 0;
+}
+
+.slider{
+    width: 1500px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+/* .slider img{
+display: block;
+
+} */
+.btn{
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 30px;
+    background-color: black;
+    opacity: 0.3;
+    color:white;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    background-position: center;
+
+}
+.rightButton{
+    right: 20px;
+}
+.leftButton{
+    left: 20px;
+}
+
+
+
+
+ul{
+    width: 1500%;
+    height: 5px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    overflow: hidden;
+    transition: height 0.1s linear 0s;
+}
+ul:hover{
+    height: 40px;
+}
+li{
+    margin: 1px;
+    float: left;
+    width: 212px;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    color:white;
+    text-align: center;
+    background-position: center;
+}
+li:hover{
+    background-color: #FF8C00;
 }
