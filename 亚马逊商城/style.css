@@ -186,3 +186,23 @@ li{
 li:hover{
     background-color: #FF8C00;
 }
+
+.txtItem{
+    width: 12.5%;
+    margin-right: 2px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.top li:hover,.heighlightColor{
+    background-color: hotpink;
+}
+
+.top:last-child{
+    margin: 0;
+}
+
+.noemalColor{
+    background-color: rgba(0, 0, 0, 0.5);
+}
