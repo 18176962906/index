@@ -50,6 +50,7 @@ function changeImg(){
     for(var i=0;i<nodeLength;i++){
         imagesA[i].className="hiddenImg";
         txtList[i].className="normalColor"
+        // button[i].className="btn"
 
 
         // console.log(imagesA[i]);
@@ -65,6 +66,7 @@ function changeImg(){
 //再突出自己, 当前图片透明度1（.displayImg）
     imagesA[currentNo].className="displayImg"
     txtList[currentNo].className="heighlightColor";
+    // button[currentNo].className=""
 //换个元素，为下一次计时器调用做准备
     if(currentNo<7) {currentNo++;} 
     else{
@@ -106,5 +108,34 @@ function gotoImg(){
     currentNo=this.no;
     //调用更换图片/文本函数
     changeImg();
+}
 
+
+// var btnleft=document.querySelectorAll('btn');
+var leftButton=document.querySelector('.leftButton');
+var rightButton=document.querySelector('.rightButton');
+console.log(leftButton);
+
+leftButton.addEventListener('click',leftImg);
+rightButton.addEventListener('click',rightImg);
+
+function leftImg(){
+    
+    if(currentNo>0){
+        currentNo--;
+    }
+    else{
+        currentNo=7;
+    }
+    console.log(currentNo);
+    changeImg();
+}
+
+function rightImg(){
+    if(currentNo<7) {currentNo++;} 
+    else{
+        currentNo=0;
+    }  
+    console.log(currentNo);
+    changeImg();
 }
