@@ -42,3 +42,36 @@ function stopChange(){
 //为按钮添加鼠标移入移出事件
 btnObj.addEventListener('mouseover',stopChange);
 btnObj.addEventListener('mouseout',startChange);
+
+// //css 选择器--document.querySelector（）
+// var img4=document.querySelector('#images>a:nth-child(4)');
+// //ID--document.getElementById（）
+// var img4=document.getElementById('imgaes').children[4];
+// //类名--document.getElementsByClassName（）
+// var img4=document.getElementsByClassName('hiddenImg')[3];
+// //标签名--documrnt.getElementsByTagName（）
+// var img4=documrnt.getElementsByTagName('a')[4];
+
+// console.log(img4);
+
+
+// //行内样式实现换显示样式
+
+// //26行元素隐藏
+// imagesA[0].style.display="none";
+// //30行元素显示
+// imagesA[4].style.display="block";
+
+// //通过更换CSS类名来实现更换样式
+
+// //26行元素隐藏
+// imagesA[0].className="hiddenImg"
+// //30行元素显示
+// imagesA[0].className="displayImg"
+
+
+
+    //排他原理，先去掉同类，同类图片透明度0（.hiddenImg）
+    // for(var i=0;i<imagesA.item.length;i++){
+    //     imagesA[i].className="hiddenImg";
+    //     console.log(imagesA[i]);

@@ -1,141 +1,105 @@
-// //css 选择器--document.querySelector（）
-// var img4=document.querySelector('#images>a:nth-child(4)');
-// //ID--document.getElementById（）
-// var img4=document.getElementById('imgaes').children[4];
-// //类名--document.getElementsByClassName（）
-// var img4=document.getElementsByClassName('hiddenImg')[3];
-// //标签名--documrnt.getElementsByTagName（）
-// var img4=documrnt.getElementsByTagName('a')[4];
+//初始化
 
-// console.log(img4);
-
-
+//---------获取相关元素--------------
+//获取sliderDIV以注册移入移出事件
+var sliderDiv=document.querySelector(".slider");
 // 获取一组带超链接的图像
-
 var imagesA=document.getElementById("images").children;
-// console.log(imagesA);
-
 //获取一组li文本
-
-// var txtList = document.querySelector(".top").children;
 var txtList = document.querySelectorAll(".top>li");
-console.log(txtList)
-
-// //行内样式实现换显示样式
-
-// //26行元素隐藏
-// imagesA[0].style.display="none";
-// //30行元素显示
-// imagesA[4].style.display="block";
-
-// //通过更换CSS类名来实现更换样式
-
-// //26行元素隐藏
-// imagesA[0].className="hiddenImg"
-// //30行元素显示
-// imagesA[0].className="displayImg"
+//上一张下一张控制按钮
+var leftButton=document.querySelector('.leftButton');
+var rightButton=document.querySelector('.rightButton');
 
 
-var currentNo=0;//当前显示图片编号
+//-------------初始化控制变量------------------
+//当前显示图片编号
+var currentNo=0;
+//图片/文本总数
+const nodeLength = 8;
 
-// 利用计时器间隔1S，显示1张图像，其余图像隐藏
+
+
+//--------------构建功能函数----------------
+
+
+//显示高亮当前某张图片/文本
 function changeImg(){
-    //排他原理，先去掉同类，同类图片透明度0（.hiddenImg）
-    // for(var i=0;i<imagesA.item.length;i++){
-    //     imagesA[i].className="hiddenImg";
-    //     console.log(imagesA[i]);
-
-
-    var nodeLength=txtList.length
+    //排他原理1将同类设置为同意状态
+    // var nodeLength=txtList.length
     for(var i=0;i<nodeLength;i++){
+        //同类图片透明度0（.hiddenImg）
         imagesA[i].className="hiddenImg";
+        //同类文本设置正常非高亮
         txtList[i].className="normalColor"
-        // button[i].className="btn"
-
-
-        // console.log(imagesA[i]);
-    
-
     }
-
-    // // 或者
-    // for(const item of imagesA){
-    //     item.className="hiddenImg";
-    // }
-
-//再突出自己, 当前图片透明度1（.displayImg）
+    //排他原理2，突出自己，当前图片透明度1（.displayImg）
     imagesA[currentNo].className="displayImg"
+    //排他原理2，文本高亮
     txtList[currentNo].className="heighlightColor";
-    // button[currentNo].className=""
-//换个元素，为下一次计时器调用做准备
-    if(currentNo<7) {currentNo++;} 
+}
+
+//--------------左向控制编号变化（当前编号）-------------
+function leftImg(){
+    
+    if(currentNo>0){ currentNo--; }
+    else{
+        currentNo= nodeLength-1;
+    }
+}
+
+//--------------右向控制编号变化（当前编号++）--------------
+function rightImg(){
+    if(currentNo< nodeLength-1) {currentNo++;} 
     else{
         currentNo=0;
     }  
-    // console.log(currentNo);
 }
-//网页加载后启动定时器
-var timer=window.setInterval(changeImg,1000);
 
-//鼠标移出后移除定时器
+//---------左向换片/文本------------
+function leftImgGo(){
+    leftImg();
+    changeImg();
+}
+
+
+//--------换向换片/文本------------
+function rightImgGo(){
+    rightImg();
+    changeImg();
+}
+
+//停止计时器
 function stopChange(){
     window.clearInterval(timer);
 }
-//鼠标移出后重设定时器
+//启动记时器
 function startChange(){
-    timer=window.setInterval(changeImg,1000);
+    timer=window.setInterval(changeImgGo,1000);
 }
 
-//获取sliderDIV以注册移入移出事件
-var sliderDiv=document.querySelector(".slider");
-// console.log(imagesADiv);
+//切换到编号文本/图片
+function gotoImg(){
+    currentNo=this.no;
+    changeImg();
+}
+
+//---------------为各大元素增加事件------------
 //为sliderDIV注册移入移出事件
 sliderDiv.addEventListener('mouseover',stopChange);
 sliderDiv.addEventListener('mouseout',startChange);
 
-//为所有文本li注册鼠标移入事件，移入之后
+
+//为所有文本li注册鼠标移入事件
 for(var i=0;i<txtList.length;i++){
-txtList[i].addEventListener('mouseover',gotoImg);
-
-//添加自定义属性no 记录当前li的编号
-txtList[i].no=i;
-// console.log(txtList[i]);
-
-}
-function gotoImg(){
-    //获得当前显示图像的编号/文本编号  this 是当前事件发生的本体
-    console.log(this.no);
-    currentNo=this.no;
-    //调用更换图片/文本函数
-    changeImg();
+    txtList[i].addEventListener('mouseover',gotoImg);
+    //添加自定义属性no  记录当前li的编号
+    txtList[i].no = i;
 }
 
+//上下一张注册事件
+leftButton.addEventListener('click',leftImgGo);
+rightButton.addEventListener('click',rightImgGo);
 
-// var btnleft=document.querySelectorAll('btn');
-var leftButton=document.querySelector('.leftButton');
-var rightButton=document.querySelector('.rightButton');
-console.log(leftButton);
-
-leftButton.addEventListener('click',leftImg);
-rightButton.addEventListener('click',rightImg);
-
-function leftImg(){
-    
-    if(currentNo>0){
-        currentNo--;
-    }
-    else{
-        currentNo=7;
-    }
-    console.log(currentNo);
-    changeImg();
-}
-
-function rightImg(){
-    if(currentNo<7) {currentNo++;} 
-    else{
-        currentNo=0;
-    }  
-    console.log(currentNo);
-    changeImg();
-}
+//网页加载后启动定时器，每隔1秒调用changeImgGo（）换片
+var timer=window.setInterval(rightImgGo,1000);
