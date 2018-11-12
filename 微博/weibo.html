@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    window.onload=function(){
+
+        //新微博内容：文本框内容（li的属性innerHTML)+删除超链接(作为li的孩子）
+        //创建超链接---设置href onclick 作为li的孩子加入
+        
+        //提取发布按钮weiboUpload-----
+        var upbtn = document.getElementById('weiboUpload');
+        //提取多行文本框newTxt-----取新微博的内容
+        var duotext= document.getElementById('newTxt');
+
+        //创建ul----整个文档加载时只创建一次，作为具体每条微博的父容器
+        var ultxt=document.createElement('ul');
+
+        //提取微博盒子weiboArea----增加孩子ul
+        //将ul作为weiboArea盒子的小孩
+        upbtn.parentNode.appendChild('ultxt');
+
+        //生成一条新微博，增加孩子的行为，onclick事件源
+        upbtn.onclick=function(){
+    
+            //创建li---每点击一次btn创建一个li,作为一条新微博
+            var newli = document.createElement('li')
+
+            //新微博内容：文本框内容（li的属性innerHTML)
+            //判断微博内容是否为空，如果为空，不能发布，单击事件结束
+            if(doutext.value == ""){
+                window.alert=("文本内容不能为空");
+                return false;
+            }
+            //如果微博内容不为空，置入文本框内容（li的属性innerHTML)
+            newLi.innerHTML=newTxt.value;
+
+            //新微博内容：删除超链接(作为li的孩子）
+            //创建超链接
+            var acreate=document.createElement('a');    
+            
+            //完善超链接
+            
+             //如果点击超链接，就从ul下删除当前超链接的父节点li
+            
+            //将超链接加入新增微博li
+            
+
+            //将新微博newLi加入ul,新微博在列表前面
+           
+
+          //如果没有微博，直接加入
+
+            //清空微博输入区的内容，为下一次发布做准备
+
+    }    
+}
+    
+</script>
+<body>
+    <div class="box" id="weiboArea">
+        微博发布: <textarea name="" id="newTxt" cols="30" rows="10"></textarea>  <button id="weiboUpload">发布</button>
+    
+</body>
+</html>
