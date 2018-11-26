@@ -61,15 +61,13 @@ class ShoppingCart {
 
 
     addToCart(order) {
-        //从本地存储中获取购物车的数据c
+        //从本地存储中获取购物车的数据
         let cartData = this.getDataFromLocalStorage();
         //获取购物车json数据中的订单列表
         let orderList = cartData.orderList;
         //设置标志位判断是否为购物车新商品，默认为是新商品
         let isNewProduct = true;
         //遍历订单列表，判断新加入商品是否在购物车中
-
-
         for (let i in orderList) {
             if (order.id == orderList[i].id) {
                 //若新加入订单商品已经在购物车中，则变更订单列表中对应的商品数量，且变更新商品标志位
@@ -92,17 +90,76 @@ class ShoppingCart {
         this.setDataToLocalSatorge(cartData);
 
     }
-    getSelectedQty(){
+    // 清空购物车（移除本地存储购物车项）
+    clearCart() {
+        localStorage.removeItem('lzzyCart');
+    }
+
+    getSelectedQty() {
         let statusQty = 0;
         let cartData = this.getDataFromLocalStorage();
-        for(let i = 0; i <cartData.orderList.length; i++){
-            if(cartData.orderList[i].selectStatus){
-                statusQty+=cartData.orderList[i].qty;
+        for (let i = 0; i < cartData.orderList.length; i++) {
+            if (cartData.orderList[i].selectStatus) {
+                statusQty += cartData.orderList[i].qty;
             }
         }
         return statusQty;
     }
+    // 获取选中商品的总价格
+    getSelectedAmount() {
+        let cartData = this.getDataFromLocalStorage();
+        let orderList = cartData.orderList;
+        let selectedAmount = 0;
+        for (const key in orderList) {
+            if (orderList[key].selectStatus) {
+                selectedAmount += orderList[key].qty * orderList[key].price;
+            }
+        }
+        return selectedAmount;
+    }
+
+    //设置购物车订单项选择状态
+    setItemSelectStatus(id, selectStatus) {
+        //获取购物车数据
+        let cartData = this.getDataFromLocalStorage();
+        let orderList = cartData.orderList;
+        //查找id对应的订单
+        let index = this.find(id, orderList);
+
+        //判断位置，位置为空报错提示，如果不为空就设置状态
+        if (index == null) {
+            //没有找到id
+            console.log('订单id有误')
+            return;
+        } else {
+            //找到对应id
+            order.selectStatus = selectStatus;
+        }
+        //写入本都存储
+        this.setDataToLocalSatorge(cartData);
+    }
+
+    //查找制定id的订单
+    find(id, orderList) {
+        // let cartData = this.getDataFromLocalStorage();
+        // let orderList = cartData.orderList;
+        let index = null;
+        for (const i in orderList) {
+            if (id == orderList[i].id) {
+                index = i;
+                break;
+            }
+        }
+        if (index != null) {
+            return orderList[index];
+        }
+        else {
+            return null;
+        }
+
+    }
 
 }
+
 
 
