@@ -1,30 +1,39 @@
 var cart = new ShoppingCart();
 
 function displayOrderList() {
-    // 获取购物车数据
-    let cartData = cart.getDataFromLocalStorage();
-    // 获取购物车订单列表
-    let orderList = cartData.orderList;
+    //找订单列表父元素
+    let cartList= document.querySelector('#cartList');
+    // 找样本节点
+    let exmapleNode =document.querySelector('#orderExanple');
     // 遍历订单列表
     for (let i = 0; i < orderList.length; i++) {
         let order = orderList[i];
-        // console.log(order)
-        // 克隆一个样本节点
+        console.log(order)
+        //当前订单数据
+        let order = orderList[i];
+        console.log(order);
+        //克隆样本节点形成当前订单节点
+        nadm = exmapleNode.cloneNode(true);
+        //挂接到父元素
+        cartList.appendChild(nadm);
 
-        let orderNew = document.createElement("div1");
-        let node = document.createTextNode("这是一个新段落。");
-        orderNew.appendChild(node);
+        //设置数据
+        //节点ID
+        node.id = order.id;
 
-        var element = document.getElementById("cartList");
-        var child = document.getElementById("row");
-        element.insertBefore(orderNew,child);
-        // 设置一个新id
-        //    orderList.id = order;
-        // 挂接到父元素
+        //图像地址
+        //找图像节点
+        let imgNode = node.querySelector('')
+        imgNode.src='images/'+order.imgSrc;
 
-        // 获取所有到数据节点data-name 依次将对应到数据送入节点对应属性
+        node.classList.remove('d-none');
 
-        // 移除新节点到隐藏属性 d-none
+
+        //设选中状态
+        //找选中节点
+        let selectNode.checked = order.selectStatus;
+        
+
     }
 }
 displayOrderList();
