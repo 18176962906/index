@@ -47,28 +47,46 @@ function displayOrderList() {
         console.log(selectNode);
         console.log(node);
     }
-    function displaySelectedTotal() {
 
-        //获取总数相关节点,并设置对应值
-        
-        let totalNode = cartRoot.querySelector(dataNameJson.units);
-        totalNode.textContent = cart.getTotalUnits();
-    
-    
-        totalNode = cartRoot.querySelector(dataNameJson.selectedQty);
-        totalNode.textContent = cart.getSelectedQty();
-    
-        totalNode = cartRoot.querySelector(dataNameJson.selectedAmount);
-        totalNode.textContent = (cart.getSelectedAmount()).toFixed(2);
-    
-    }
-    // function regEvent (){
-    //     let element = cartRoot.querySelector(openatorGlobal.clearAll);
-    //     console.log()
+}
+function displaySelectedTotal() {
 
-    // }
+    //获取总数相关节点,并设置对应值
+
+    let totalNode = cartRoot.querySelector(dataNameJson.units);
+    totalNode.textContent = cart.getTotalUnits();
+
+
+    totalNode = cartRoot.querySelector(dataNameJson.selectedQty);
+    totalNode.textContent = cart.getSelectedQty();
+
+    totalNode = cartRoot.querySelector(dataNameJson.selectedAmount);
+    totalNode.textContent = (cart.getSelectedAmount()).toFixed(2);
+
 }
 
+
+//获取要删除的商品ID节点
+//为该节点注册单击事件
+//触发函数
+//调用SoppingCart里删除指定商品ID方法
+//重新获取购物车数据
+
+// regEvent()
+// 获取一组订单删除按钮
+// 为每一个删除按钮设计单击事件—触发deleteItemEventFun
+// （2）设计单击触发函数---独立函数 
+// deleteItemEventFun（e）()
+// （2-1）获取当前被单击的删除按钮 e.target
+// （2-2）根据当前被单击删除按钮找到当前订单id(之前需要在订单加载时给删除按钮注入data-id属性  )
+// element.getAttribute()
+// element.setAttribute()
+// ---》调用购物车类删除订单方法 cart. deleteItem(id)
+// 根据当前订单id找到当前订单节点
+// —》删除节点  订单列表节点.removeChild(当前订单节点)
+// 修改各种总数据displaySelectedTotal()
+
+
+
 displayOrderList();
-displaySelectedTotal();
-// regEvent();
+// displaySelectedTotal();
