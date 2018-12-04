@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+    <script>
+        var ajax = new XMLHttpRequest();
+        var url = 'verse4.txt';
+        ajax.open('get', url);
+        ajax.responseType = 'text';
+        ajax.onreadystatechange = function () {
+            console.log(ajax.readyState);
+            console.log(ajax.status);
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                let divNode = document.querySelector('#test');
+                divNode.textContent = ajax.response;
+            }
+        }
+        ajax.send();
+
+
+
+
+
+        var url = 'can-store-xhr/products.json';
+        var xhr = new XMLHttpRequest();
+        var arr;
+
+        xhr.open('GET', url);
+        xhr.responseType = 'json';
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.response);
+                arr = xhr.response;
+                console.log(arr[3]);
+                let element = arr[3];
+                console.log(element);
+                console.log(element.name);
+
+            }
+        }
+        xhr.send();
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
