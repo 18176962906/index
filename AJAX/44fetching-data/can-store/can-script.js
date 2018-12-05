@@ -1,6 +1,7 @@
 
 // 创建变量products用于存储商品数据
 var products; 
+console.log(products);
 
 //使用fetch技术，获取本站产品json文件
 fetch('products.json').then(function (response) {
