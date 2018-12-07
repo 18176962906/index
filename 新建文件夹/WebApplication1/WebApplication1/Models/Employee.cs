@@ -5,23 +5,17 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class Customer
+    public class Employee
     {
-        public string CustomerName
+        public string Name
         {
             get;
             set;
         }
-        public string Address
+        public int Salary
         {
             get;
             set;
         }
-        public override string ToString()
-        {
-            return this.CustomerName + "-" + this.Address;
-        }
-
-
     }
 }
