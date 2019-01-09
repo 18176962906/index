@@ -198,6 +198,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Test\MyView.cshtml" />
     <Content Include="Views\Test\YourView.cshtml" />
+    <Content Include="Views\Shared\MyView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
