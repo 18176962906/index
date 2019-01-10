@@ -2,7 +2,7 @@
     ViewBag.Title = "About";
 }
 <div>
-    <ul class="num">
+    <ul class="nav">
         <li>@Html.ActionLink("推荐", "Index", "Music")</li>
         <li>@Html.ActionLink("排行榜", "Index", "Music")</li>
         <li>@Html.ActionLink("歌单", "Index", "Music")</li>
@@ -11,8 +11,8 @@
         <li>@Html.ActionLink("新碟上架", "Index", "Music")</li>
     </ul>
     <form action="/music/save" method="post">
-        姓名：<input type="text" name="Name">
-        歌曲：<input type="text" name="MusicName">
+        姓名：<input type="text" name="UserName">
+        歌曲：<input type="text" name="Musics">
         <input type="submit" value="保存"><input type="reset" value="重置">
     </form>
 </div>

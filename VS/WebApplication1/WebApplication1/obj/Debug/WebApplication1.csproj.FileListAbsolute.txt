@@ -185,3 +185,8 @@ C:\Users\Administrator\Desktop\index\VS\WebApplication1\WebApplication1\bin\Enti
 C:\Users\Administrator\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.xml
 C:\Users\Administrator\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
 C:\Users\Administrator\Desktop\index\VS\WebApplication1\WebApplication1\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\admin\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.dll
+C:\Users\admin\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.xml
+C:\Users\admin\Desktop\index\VS\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\index\VS\WebApplication1\WebApplication1\bin\zh-Hans\EntityFramework.resources.dll
