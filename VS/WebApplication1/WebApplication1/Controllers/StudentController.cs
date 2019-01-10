@@ -21,8 +21,8 @@ namespace WebApplication1.Controllers
         public Login GetCustomer()
         {
             Login ct = new Login();
-            ct.CustomerName = "abc";
-            ct.Address = "def";
+            //ct.CustomerName = "abc";
+            //ct.Address = "def";
             return ct;
         }
         public ActionResult GetView()
