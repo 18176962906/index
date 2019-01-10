@@ -5,21 +5,21 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class Customer
+    public class Login
     {
-        public string CustomerName
+        public string UserName
         {
             get;
             set;
         }
-        public string Address
+        public string Password
         {
             get;
             set;
         }
         public override string ToString()
         {
-            return this.CustomerName + "-" + this.Address;
+            return this.UserName + "-" + this.Password;
         }
 
 

@@ -14,8 +14,9 @@ namespace WebApplication1.Controllers
         // GET: Employee
         public ActionResult Index()
         {
-
-            return View();
+            MusicBusiness mb = new MusicBusiness();
+            mb.Query();
+            return View(mb);
         }
         public ActionResult Save(Music m)
         {
@@ -28,6 +29,20 @@ namespace WebApplication1.Controllers
             MusicViewModel mv = new MusicViewModel();
             mv.UserName = name;
             return View("Index",name);
+        }
+        public ActionResult Quert()
+        {
+            MusicBusiness mb = new Models.MusicBusiness();
+            var ms = mb.Query();
+            foreach (var item in ms)
+            {
+                Console.WriteLine(item.Musics  + "" + item.UserName );
+            }
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
         }
     }
 }

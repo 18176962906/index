@@ -18,9 +18,9 @@ namespace WebApplication1.Controllers
         {
             return "hello world! MVC!";
         }
-        public Customer GetCustomer()
+        public Login GetCustomer()
         {
-            Customer ct = new Customer();
+            Login ct = new Login();
             ct.CustomerName = "abc";
             ct.Address = "def";
             return ct;

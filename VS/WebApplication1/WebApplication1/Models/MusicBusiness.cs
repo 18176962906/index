@@ -36,5 +36,12 @@ namespace WebApplication1.Models
                 return m;
             }
         }
+        public List<Music> Query()
+        {
+            using (var db = new MusicDAL())
+            {
+                return db.Musics.ToList();
+            }
+        }
     }
 }
