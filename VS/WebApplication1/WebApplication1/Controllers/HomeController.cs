@@ -26,5 +26,22 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+        public ActionResult MyMusic()
+        {
+            return View();
+        }
+        public ActionResult Friend()
+        {
+            return View();
+        }
+        public ActionResult Musician()
+        {
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }

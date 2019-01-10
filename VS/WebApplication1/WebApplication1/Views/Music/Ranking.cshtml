@@ -1,6 +1,6 @@
-﻿@model WebApplication1.ViewModel.ListViewModel 
+﻿@model WebApplication1.ViewModel.ListViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ranking";
 }
 
 <!DOCTYPE html>
@@ -8,21 +8,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Ranking</title>
 </head>
 <body>
     <div>
         @foreach (var item in Model.MusicViewList)
         {
             <ul class="nav">
-                @Html.DisplayFor(modelItem => item.UserName)
                 @Html.DisplayFor(modelItem => item.MusicName)
                 <a href=" ">播放▶</a>
-                </ul>
-            }
+            </ul>
+        }
     </div>
 </body>
 </html>
-
-
-
