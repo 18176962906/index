@@ -1,4 +1,4 @@
-
+ 
 // 创建变量products用于存储商品数据
 var products; 
 console.log(products);
